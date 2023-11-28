@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Navbar from '@/app/components/login/navbar'
 import LoginContainer from "@/app/components/login/loginContainer"
+import Link from 'next/link'
+
 
 export default function Home() {
   const containerStyle = {
@@ -9,8 +11,11 @@ export default function Home() {
 
   return (
     <main style={containerStyle}>
-      <Navbar/>
-      <LoginContainer/>
+      <Link href="/auth">
+        <button>
+          ir para login
+        </button>
+      </Link>
     </main>
   )
 }
