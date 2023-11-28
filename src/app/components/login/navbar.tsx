@@ -9,7 +9,7 @@ export default function Navbar() {
 
     return (
         <main style={navbarStyle}>
-            <h1>Navbar</h1>
+            <h1>Navbarsuperior</h1>
         </main>
     )
 }

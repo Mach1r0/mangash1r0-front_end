@@ -1,12 +1,16 @@
 import Image from 'next/image'
-import Navbar from './components/login/navbar'
-import LoginConteiner from './components/login/LoginConteiner'
+import Navbar from '@/app/components/login/navbar'
+import LoginContainer from "@/app/components/login/loginContainer"
 
 export default function Home() {
+  const containerStyle = {
+    backgroundColor: 'black',
+  }
+
   return (
-    <>
+    <main style={containerStyle}>
       <Navbar/>
-      <LoginConteiner/>
-    </>
+      <LoginContainer/>
+    </main>
   )
 }
