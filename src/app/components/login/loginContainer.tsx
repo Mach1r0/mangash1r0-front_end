@@ -111,6 +111,11 @@ return (
                 <button onClick={submitComment} style={SubmitStyle}><h1>Login</h1></button>
                 <Link onClick={submitComment} className="text-center" style={SubmitStyle} href="/register"><h1>register</h1></Link>
             </div>
+            <li style={listStyle}>
+            {/* <Image src="/376605.png" alt="376605.png" width={500} height={300} />            <h1 style={Titulostyle}>teste</h1> */}
+            {/* ... rest of your JSX */}
+        </li>
+
         </li>
         
     </div>
