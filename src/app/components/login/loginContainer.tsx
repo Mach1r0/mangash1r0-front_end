@@ -4,19 +4,15 @@ import Link from "next/link";
 
 export default function LoginContainer() {
     const containerStyle = {
-        backgroundColor: '#A9A9A9',
-        height: '70%',
+        backgroundColor: 'rgba(169, 169, 169, 0.9)', // 10% transparent
+        height: '45%',
         width: '30%',
         position: 'absolute' as const, // cast string to type 'absolute'
-        top: '50%',  // Position from the top half of the screen
+        top: '65%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
         transform: 'translate(-50%, -50%)', 
         justifyContent: 'center',
         borderRadius: "25px",
-        backgroundImage: `url(${process.env.PUBLIC_URL + '/your-image.jpg'})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
     }
     const listStyle = {
         margin: "0",
