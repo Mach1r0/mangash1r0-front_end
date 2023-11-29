@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image'
-import { useState } from 'react';
 import Link from "next/link";
 
 export default function LoginContainer() {
@@ -8,33 +7,48 @@ export default function LoginContainer() {
         backgroundColor: '#A9A9A9',
         height: '70%',
         width: '30%',
-        position: 'absolute',  // Position the element
+        position: 'absolute' as const, // cast string to type 'absolute'
         top: '50%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
         transform: 'translate(-50%, -50%)', 
         justifyContent: 'center',
         borderRadius: "25px",
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/your-image.jpg'})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
     }
     const listStyle = {
         margin: "0",
         padding: "0",
         border: "0",
         display: 'flex',  // Make the element a flex container
-        flexDirection: 'column',
+        flexDirection: 'column' as const,
         justifyContent: ' center',
-        position: "relative",
+        position: "relative" as const,
         top: '50%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
         transform: 'translate(-50%, -50%)',
+          
     }
     const inputStyle = {
-        position: "relative",
+        position: "relative" as const,
         top: '50%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
         transform: 'translate(-50%, -50%)',
         width: "50%",
         margin: "10px",
         borderRadius: "5px",
+    }
+    const forgotPasswordStyle = {
+        position: "relative" as const,
+        top: '50%',  // Position from the top half of the screen
+        left: '50%',  // Position from the left half of the screen
+        transform: 'translate(-50%, -50%)',
+        width: "50%",
+        margin: "10px",
+        borderRadius: "5px",
+        color: '#0000cd',  // Change this to the color you want]
     }
 
     
@@ -43,43 +57,51 @@ export default function LoginContainer() {
         borderRadius: "5px",
         width: "17%",
         height: "50%",
-        position: "relative",
+        position: "relative" as const,
         top: '50%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
         transform: 'translate(-100%, -50%)',
         display: "flex",
-        flexDirection: "row",
         margin:"10px",
-        textAlign: "center",
         justifyContent: 'center',  // Added property to center text
-        alignItems: 'center',  // Added property to center text
-        
+        alignItems: 'center', 
+        flexDirection: 'row' as const, // or 'nowrap'
     }
     const Titulostyle = {
         color: "black",
-        position: "relative",
+        position: "relative" as const,
         top: '50%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
         transform: 'translate(-50%, -50%)',
         margin: "10px",
         borderRadius: "5px",
         display:"flex",
-        textAlign: "center",
         justifyContent: "center",
         fontSize: '25px',  // Change this to the size you want
+    
+    }
+    const backgroundImageStyle = {
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/your-image.jpg'})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        width: '100%',
+        height: '100%',
+        position: 'absolute' as const,
+        zIndex: -1
     }
 
     const submitComment = async () => {
         const email = document.getElementById("email")
-        const password = document.getElementById("password")
+    const password = document.getElementById("password")
 
-        const response = await fetch('/http://localhost:3000/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        })
+    const response = await fetch('/http://localhost:3000/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+        body: JSON.stringify({ email, password }),
+    })
 
         const { error } = await response.json()
 
@@ -87,18 +109,8 @@ export default function LoginContainer() {
             console.error(error)
         }
     }
-    const forgotPasswordStyle = {
-        position: "relative",
-        top: '50%',  // Position from the top half of the screen
-        left: '50%',  // Position from the left half of the screen
-        transform: 'translate(-50%, -50%)',
-        width: "50%",
-        margin: "10px",
-        borderRadius: "5px",
-        color: '#0000cd',  // Change this to the color you want
-    }
-    
-return (
+
+    return (
     <div style={containerStyle}>
         <li style={listStyle}>
             <h1 style={Titulostyle}>LOGIN</h1>
@@ -111,12 +123,6 @@ return (
                 <button onClick={submitComment} style={SubmitStyle}><h1>Login</h1></button>
                 <Link onClick={submitComment} className="text-center" style={SubmitStyle} href="/register"><h1>register</h1></Link>
             </div>
-            <li style={listStyle}>
-            {/* <Image src="/376605.png" alt="376605.png" width={500} height={300} />            <h1 style={Titulostyle}>teste</h1> */}
-            {/* ... rest of your JSX */}
         </li>
-
-        </li>
-        
     </div>
-)
+)}

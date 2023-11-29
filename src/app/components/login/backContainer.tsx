@@ -1,10 +1,25 @@
-import Background from "../../../../public/background.png"
+import BackgroundImage from '../../../../public/background.png'; // replace with the path to your image
+import React, { ReactNode } from 'react';
+import Image from 'next/image';
+interface BackContainerProps {
+    children: ReactNode;
+}
 
-export default function BackContainer() {
-    const backStyle = {
-        backgroundImage: "url('/home/estagio_manha/Desktop/mangash1r0-front_end/public/next.svg')"
+export default function BackContainer({children}: BackContainerProps) {
+    const backgroundImageStyle = { 
+        backgroundImage: 'url(${BackgroundImage})',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        width: '100%',
+        height: '100%',
+        position: 'absolute' as const,
+        color: 'blue',
     }
+
     return(
-        <div style={backStyle}/>
+        <div>
+            <Image alt='background' src={BackgroundImage}/>
+            {children}
+        </div>
     )
 }
