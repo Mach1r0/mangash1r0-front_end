@@ -9,10 +9,14 @@ export default function Home() {
     backgroundColor: 'black',
   }
 
+  const login = {
+  color:'white',
+  }
+
   return (
     <main style={containerStyle}>
-      <Link href="/auth">
-        <button>
+      <Link style={login} href="/auth">
+        <button >
           ir para login
         </button>
       </Link>

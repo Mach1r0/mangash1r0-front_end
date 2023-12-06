@@ -1,8 +1,14 @@
 'use client'
 import Image from 'next/image'
 import Link from "next/link";
+import React, { ReactNode } from 'react';
 
-export default function LoginContainer() {
+interface LoginContainerProps {
+    children: ReactNode;
+}
+
+export default function LoginContainer({children}: LoginContainerProps) {
+
     const containerStyle = {
         backgroundColor: 'rgba(169, 169, 169, 0.9)', // 10% transparent
         height: '45%',
@@ -74,38 +80,34 @@ export default function LoginContainer() {
         display:"flex",
         justifyContent: "center",
         fontSize: '25px',  // Change this to the size you want
-    
     }
-    const backgroundImageStyle = {
-        backgroundImage: `url(${process.env.PUBLIC_URL + '/your-image.jpg'})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        width: '100%',
-        height: '100%',
-        position: 'absolute' as const,
-        zIndex: -1
-    }
-
     const submitComment = async () => {
-        const email = document.getElementById("email")
-    const password = document.getElementById("password")
-
-    const response = await fetch('/http://localhost:3000/', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-        body: JSON.stringify({ email, password }),
-    })
-
-        const { error } = await response.json()
-
+        const emailElement = document.getElementById("email") as HTMLInputElement | null;
+        const passwordElement = document.getElementById("password") as HTMLInputElement | null;
+    
+        if (!emailElement || !passwordElement) {
+            console.error("Email or password field is missing");
+            return;
+        }
+    
+        const email = emailElement.value;
+        const password = passwordElement.value;
+    
+        const response = await fetch('http://localhost:8000/user/create/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ "email": email, "password" : password}),
+        });
+    
+        const { error } = await response.json();
+    
         if (error) {
-            console.error(error)
+            console.error(error);
         }
     }
-
+    
     return (
     <div style={containerStyle}>
         <li style={listStyle}>
@@ -117,7 +119,8 @@ export default function LoginContainer() {
             <Link style={forgotPasswordStyle} color='blue' href="/forgotpassword">Forgot password?</Link>
             <div className='flex flex-row'>
                 <button onClick={submitComment} style={SubmitStyle}><h1>Login</h1></button>
-                <Link onClick={submitComment} className="text-center" style={SubmitStyle} href="/register"><h1>register</h1></Link>
+                {children}
+                {/* <Link onClick={submitComment} className="text-center" style={SubmitStyle} href="/register"><h1>register</h1></Link> */}
             </div>
         </li>
     </div>
