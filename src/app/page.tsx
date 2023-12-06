@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <main style={containerStyle}>
-      <Link style={login} href="/auth">
+      <Link style={login} href="/pages/auth">
         <button >
           ir para login
         </button>
