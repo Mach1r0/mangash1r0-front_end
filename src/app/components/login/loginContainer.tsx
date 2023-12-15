@@ -16,7 +16,7 @@ export default function LoginContainer({children}: LoginContainerProps) {
         position: 'absolute' as const, // cast string to type 'absolute'
         top: '65%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
-        transform: 'translate(-50%, -50%)', 
+        transform: 'translate(-50%, -50%)',
         justifyContent: 'center',
         borderRadius: "25px",
     }
@@ -31,7 +31,6 @@ export default function LoginContainer({children}: LoginContainerProps) {
         top: '50%',  // Position from the top half of the screen
         left: '50%',  // Position from the left half of the screen
         transform: 'translate(-50%, -50%)',
-          
     }
     const inputStyle = {
         position: "relative" as const,
@@ -53,7 +52,6 @@ export default function LoginContainer({children}: LoginContainerProps) {
         color: '#0000cd',  // Change this to the color you want]
     }
 
-    
     const SubmitStyle = {
         backgroundColor: "white",
         borderRadius: "5px",

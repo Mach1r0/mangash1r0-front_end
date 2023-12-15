@@ -23,8 +23,12 @@ export default function Auth() {
     justifyContent: 'center',  // Added property to center text
     alignItems: 'center', 
     flexDirection: 'row' as const, // or 'nowrap'
-}
 
+  }
+  
+  const StyleButton = {
+  
+  }
   return (
     <main>
       <Navbar />
@@ -34,7 +38,11 @@ export default function Auth() {
               Register
             </button>
         </LoginContainer>}
-        {!showLogin && <RegisterContainer/>}
+        {!showLogin && <RegisterContainer>
+          <button style={StyleButton} onClick={() => setShowLogin(true) }className="text-center" style={SubmitStyle}>
+          Back to login
+          </button>
+        </RegisterContainer>}
       </BackContainer>
     </main>
   );
