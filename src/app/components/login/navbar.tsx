@@ -32,11 +32,11 @@ export default function Navbar() {
         backdropFilter: 'blur(10px)',
     }
     const stylelist = {
-        textDecoration: 'none',
+        listStyle: "none",
         display: 'relative',
-       justifyContent: 'center',
-       alignItems: 'center',
-       width: '100%' 
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%' 
 }
 
 return (
@@ -46,10 +46,10 @@ return (
             </div>
             <div style={stylelist}> 
                 <li style={stylelist}>
-                <Link style={styleletter} href="/aboutus">About us</Link>
-                <Link style={styleletter} href='/animelist'>Anime list</Link>
-                <Link style={styleletter} href='/mangalist'>manga list</Link>
-                <Link style={styleletter} href='profile'>profile</Link>
+                    <Link style={styleletter} href="/aboutus">About us</Link>
+                    <Link style={styleletter} href='/animelist'>Anime list</Link>
+                    <Link style={styleletter} href='/mangalist'>manga list</Link>
+                    <Link style={styleletter} href='profile'>profile</Link>
                 </li>
                 <div style={blurnav}/>
             </div>
