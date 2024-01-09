@@ -46,10 +46,10 @@ return (
             </div>
             <div style={stylelist}> 
                 <li style={stylelist}>
-                    <Link style={styleletter} href="/aboutus">About us</Link>
-                    <Link style={styleletter} href='/animelist'>Anime list</Link>
-                    <Link style={styleletter} href='/mangalist'>manga list</Link>
-                    <Link style={styleletter} href='profile'>profile</Link>
+                    <Link style={styleletter} href="pages/aboutus">About us</Link>
+                    <Link style={styleletter} href='pages/animelist'>Anime list</Link>
+                    <Link style={styleletter} href='pages/mangalist'>manga list</Link>
+                    <Link style={styleletter} href='pages/profile'>profile</Link>
                 </li>
                 <div style={blurnav}/>
             </div>
