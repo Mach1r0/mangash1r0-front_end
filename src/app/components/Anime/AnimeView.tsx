@@ -1,10 +1,10 @@
+"use client"
 import React, { ReactNode } from 'react';
 
-interface Props {
+interface AnimeProps {
     children: ReactNode
 }
-
-export default function AnimeView({ children }: Props) {
+export default function AnimeView({ children }: AnimeProps) {
     const containerStyle = {
         display: 'flex',
         justifyContent: 'center',
@@ -15,7 +15,7 @@ export default function AnimeView({ children }: Props) {
 
     const listStyle = {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column' as const,
         gap: '10px'
     }
 

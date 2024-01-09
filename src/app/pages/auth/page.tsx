@@ -1,5 +1,5 @@
 "use client"
-import Navbar from '@/app/components/login/navbar';
+import Navbar from '@/app/components/global/navbar';
 import LoginContainer from '@/app/components/login/loginContainer';
 import RegisterContainer from '@/app/components/login/register'; // Import this
 import Background from '@/app/components/login/backContainer';

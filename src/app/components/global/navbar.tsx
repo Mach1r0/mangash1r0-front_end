@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { ReactNode } from 'react';
@@ -10,6 +11,7 @@ export default function Navbar() {
         width: '100%',
         display: 'flex', // Change this
         justifyContent: 'space-between', // Keep this
+        alignItems: 'center', // Keep this
     }
     
     const NavbarImageStyle = {
@@ -47,7 +49,7 @@ return (
             <div style={stylelist}> 
                 <li style={stylelist}>
                     <Link style={styleletter} href="pages/aboutus">About us</Link>
-                    <Link style={styleletter} href='pages/animelist'>Anime list</Link>
+                    <Link style={styleletter} href='animelist'>Anime list</Link>
                     <Link style={styleletter} href='pages/mangalist'>manga list</Link>
                     <Link style={styleletter} href='pages/profile'>profile</Link>
                 </li>
